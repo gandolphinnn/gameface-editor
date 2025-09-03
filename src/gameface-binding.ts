@@ -4,6 +4,12 @@
  */
 
 class GamefaceBinding {
+	public bindings: Map<any, any>;
+	public models: Map<any, any>;
+	public eventHandlers: Map<any, any>;
+	public isGamefaceEnvironment: boolean;
+
+
     constructor() {
         this.bindings = new Map();
         this.models = new Map();
@@ -323,8 +329,3 @@ class GamefaceBinding {
 
 // Global instance
 window.gamefaceBinding = new GamefaceBinding();
-
-// Export for module systems
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = GamefaceBinding;
-}
