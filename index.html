@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameface In-Game Editor</title>
+    <link rel="stylesheet" href="styles/editor.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <!-- Main Editor Container -->
+    <div id="editor-container" class="editor-container">
+        <!-- Top Menu Bar -->
+        <header class="menu-bar">
+            <div class="menu-section">
+                <button class="menu-btn" data-menu="file">File</button>
+                <button class="menu-btn" data-menu="edit">Edit</button>
+                <button class="menu-btn" data-menu="view">View</button>
+                <button class="menu-btn" data-menu="tools">Tools</button>
+                <button class="menu-btn" data-menu="help">Help</button>
+            </div>
+            <div class="editor-title">Gameface Editor</div>
+            <div class="window-controls">
+                <button class="control-btn minimize">−</button>
+                <button class="control-btn maximize">□</button>
+                <button class="control-btn close">×</button>
+            </div>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="tool-group">
+                <button class="tool-btn active" data-tool="select" title="Select Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M2 2l4 10 2-4 4-2L2 2z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="tool-btn" data-tool="move" title="Move Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button class="tool-btn" data-tool="rotate" title="Rotate Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M8 2a6 6 0 1 1-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M2 8l2-2-2-2" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <button class="tool-btn" data-tool="scale" title="Scale Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <rect x="2" y="2" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="12" y="12" width="2" height="2" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="tool-group">
+                <button class="tool-btn" data-tool="brush" title="Brush Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="3" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="tool-btn" data-tool="eraser" title="Eraser Tool">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <rect x="2" y="6" width="8" height="4" rx="2" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="tool-group">
+                <button class="tool-btn" data-tool="undo" title="Undo">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M3 7v2a4 4 0 0 0 4 4h6M3 7l3-3M3 7l3 3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <button class="tool-btn" data-tool="redo" title="Redo">
+                    <svg width="16" height="16" viewBox="0 0 16 16">
+                        <path d="M13 7v2a4 4 0 0 1-4 4H3M13 7l-3-3M13 7l-3 3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Sidebar - Asset Browser -->
+            <aside class="sidebar left-sidebar">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Assets</h3>
+                        <button class="panel-toggle">−</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="asset-categories">
+                            <button class="category-btn active" data-category="models">Models</button>
+                            <button class="category-btn" data-category="textures">Textures</button>
+                            <button class="category-btn" data-category="materials">Materials</button>
+                            <button class="category-btn" data-category="prefabs">Prefabs</button>
+                        </div>
+                        <div class="asset-grid" id="asset-grid">
+                            <!-- Assets will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Scene Hierarchy</h3>
+                        <button class="panel-toggle">−</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="hierarchy-tree" id="hierarchy-tree">
+                            <!-- Scene hierarchy will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Viewport -->
+            <main class="viewport-container">
+                <div class="viewport-header">
+                    <div class="viewport-controls">
+                        <button class="viewport-btn" data-view="perspective">3D</button>
+                        <button class="viewport-btn" data-view="top">Top</button>
+                        <button class="viewport-btn" data-view="front">Front</button>
+                        <button class="viewport-btn" data-view="side">Side</button>
+                    </div>
+                    <div class="viewport-info">
+                        <span id="viewport-fps">FPS: 60</span>
+                        <span id="viewport-objects">Objects: 0</span>
+                    </div>
+                </div>
+                <div class="viewport" id="main-viewport">
+                    <canvas id="editor-canvas" width="800" height="600"></canvas>
+                    <div class="viewport-overlay">
+                        <div class="grid-toggle">
+                            <label>
+                                <input type="checkbox" id="show-grid" checked> Show Grid
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Sidebar - Properties -->
+            <aside class="sidebar right-sidebar">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Properties</h3>
+                        <button class="panel-toggle">−</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="property-section" id="transform-properties">
+                            <h4>Transform</h4>
+                            <div class="property-group">
+                                <label>Position</label>
+                                <div class="vector3-input">
+                                    <input type="number" placeholder="X" data-binding="transform.position.x" step="0.1">
+                                    <input type="number" placeholder="Y" data-binding="transform.position.y" step="0.1">
+                                    <input type="number" placeholder="Z" data-binding="transform.position.z" step="0.1">
+                                </div>
+                            </div>
+                            <div class="property-group">
+                                <label>Rotation</label>
+                                <div class="vector3-input">
+                                    <input type="number" placeholder="X" data-binding="transform.rotation.x" step="1">
+                                    <input type="number" placeholder="Y" data-binding="transform.rotation.y" step="1">
+                                    <input type="number" placeholder="Z" data-binding="transform.rotation.z" step="1">
+                                </div>
+                            </div>
+                            <div class="property-group">
+                                <label>Scale</label>
+                                <div class="vector3-input">
+                                    <input type="number" placeholder="X" data-binding="transform.scale.x" step="0.1" value="1">
+                                    <input type="number" placeholder="Y" data-binding="transform.scale.y" step="0.1" value="1">
+                                    <input type="number" placeholder="Z" data-binding="transform.scale.z" step="0.1" value="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="property-section" id="material-properties">
+                            <h4>Material</h4>
+                            <div class="property-group">
+                                <label>Albedo</label>
+                                <input type="color" data-binding="material.albedo" value="#ffffff">
+                            </div>
+                            <div class="property-group">
+                                <label>Metallic</label>
+                                <input type="range" min="0" max="1" step="0.01" data-binding="material.metallic" value="0">
+                            </div>
+                            <div class="property-group">
+                                <label>Roughness</label>
+                                <input type="range" min="0" max="1" step="0.01" data-binding="material.roughness" value="0.5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Console</h3>
+                        <button class="panel-toggle">−</button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="console" id="editor-console">
+                            <div class="console-output" id="console-output">
+                                <div class="log-entry info">Editor initialized successfully</div>
+                            </div>
+                            <div class="console-input">
+                                <input type="text" id="console-command" placeholder="Enter command...">
+                                <button id="console-execute">Execute</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <div class="status-section">
+                <span id="status-message">Ready</span>
+            </div>
+            <div class="status-section">
+                <span id="selection-info">Nothing selected</span>
+            </div>
+            <div class="status-section">
+                <span id="camera-info">Camera: Perspective</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Context Menus -->
+    <div id="context-menu" class="context-menu hidden">
+        <div class="context-item" data-action="copy">Copy</div>
+        <div class="context-item" data-action="paste">Paste</div>
+        <div class="context-item" data-action="duplicate">Duplicate</div>
+        <div class="context-separator"></div>
+        <div class="context-item" data-action="delete">Delete</div>
+    </div>
+
+    <!-- Modal Dialogs -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal" id="settings-modal">
+            <div class="modal-header">
+                <h3>Editor Settings</h3>
+                <button class="modal-close">×</button>
+            </div>
+            <div class="modal-content">
+                <div class="setting-group">
+                    <label>Grid Size</label>
+                    <input type="number" id="grid-size" value="1" min="0.1" step="0.1">
+                </div>
+                <div class="setting-group">
+                    <label>Auto Save</label>
+                    <input type="checkbox" id="auto-save" checked>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" data-action="cancel">Cancel</button>
+                <button class="btn primary" data-action="apply">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/gameface-binding.js"></script>
+    <script src="js/editor-core.js"></script>
+    <script src="js/viewport.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/ui-manager.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

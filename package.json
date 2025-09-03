@@ -1,0 +1,64 @@
+{
+	"name": "gameface-in-game-editor",
+	"version": "1.0.0",
+	"description": "A comprehensive in-game editor built with Gameface UI technology for real-time 3D scene editing and asset management",
+	"main": "index.html",
+	"scripts": {
+		"serve": "live-server --port=8080 --no-browser",
+		"lint": "eslint js/*.js",
+		"format": "prettier --write \"**/*.{js,css,html,md}\"",
+		"play": "D:\\Plugins\\CoherentSample\\Apps\\Player.exe --url=http://localhost:8080"
+	},
+	"keywords": [
+		"gameface",
+		"ui",
+		"editor",
+		"game-development",
+		"3d",
+		"scene-editor",
+		"in-game-editor",
+		"html5",
+		"javascript",
+		"css3"
+	],
+	"author": "Gameface Editor Team",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"http-server": "^14.1.1",
+		"live-server": "^1.2.2",
+		"eslint": "^8.57.0",
+		"prettier": "^3.2.5"
+	},
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/your-username/gameface-in-game-editor.git"
+	},
+	"bugs": {
+		"url": "https://github.com/your-username/gameface-in-game-editor/issues"
+	},
+	"homepage": "https://github.com/your-username/gameface-in-game-editor#readme",
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
+	"gameface": {
+		"version": ">=2.0.0",
+		"components": [
+			"data-binding",
+			"ui-components",
+			"engine-integration"
+		],
+		"features": [
+			"3d-viewport",
+			"asset-management",
+			"scene-hierarchy",
+			"property-editing",
+			"tool-system"
+		]
+	}
+}
