@@ -1,4 +1,4 @@
-import { modelData } from "./model";
+import { EBarSlot, IBarsData, IModel, ITab } from "./types/types.js";
 
 export class Tab implements ITab {
 	id: string;
@@ -40,6 +40,9 @@ export class Model implements IModel {
 	barsData: IBarsData;
 	tabs: Bar[];
 
+	/** @test */
+	count = 12;
+
 	constructor(data: IModel) {
 		this.barsData = data.barsData;
 		this.tabs = data.tabs.map(bar => new Bar(bar));
@@ -56,5 +59,3 @@ export class Model implements IModel {
 		barB.style.height = `${this.barsData.bottom}%`;
 	}
 }
-
-export const model = new Model(modelData);

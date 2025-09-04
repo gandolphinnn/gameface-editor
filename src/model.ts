@@ -1,3 +1,5 @@
+import { EBarSlot, IModel } from "./types/types.js";
+
 export const modelData: IModel = {
 	barsData: {
 		[EBarSlot.Left]: { size: 20 },
