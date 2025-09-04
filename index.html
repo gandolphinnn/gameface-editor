@@ -61,7 +61,9 @@
 					</div>
 				</div>
 				<div class="sb-content sb-bottom">
-					
+					<button data-bind-click="Bind.increment(1)">Increment</button>
+					<button data-bind-click="Bind.increment(-1)">Decrement</button>
+					<div data-bind-value="{{Bind.count}}"></div>
 				</div>
 			</div>
 		</div>
@@ -91,7 +93,9 @@
 		</div>
 	</div> -->
 
-	<script src="dist/model.js"></script>
-	<script src="dist/components.js"></script>
+	<script src="dist/cohtml.js"></script>
+	<script src="dist/connector.js"></script>
+	<!-- <script src="dist/model.js"></script>
+	<script src="dist/components.js"></!-->
 </body>
 </html>

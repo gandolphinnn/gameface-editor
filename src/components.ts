@@ -41,7 +41,6 @@ export class Model implements IModel {
 	tabs: Bar[];
 
 	constructor(data: IModel) {
-		console.log('@187255:', data);
 		this.barsData = data.barsData;
 		this.tabs = data.tabs.map(bar => new Bar(bar));
 	}

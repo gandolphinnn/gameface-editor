@@ -23,6 +23,8 @@ interface GamefaceEngine {
 	 */
 	createJSModel(modelName: string, data: any): void;
 
+	whenReady: Promise<void>;
+
 	/**
 	 * Synchronize all models with the UI
 	 */
@@ -30,10 +32,9 @@ interface GamefaceEngine {
 
 	/**
 	 * Update a model with new data
-	 * @param modelName - Name of the model to update
-	 * @param data - New data for the model
+	 * @param model - Model to update
 	 */
-	updateWholeModel(modelName: string, data: any): void;
+	updateWholeModel(model: any): void;
 
 	/**
 	 * Register a command that can be called from the game
@@ -48,9 +49,9 @@ declare const engine: GamefaceEngine | undefined;
 
 // Extend Window interface to include the engine object and gamefaceBinding
 declare global {
-    interface Window {
-        engine?: GamefaceEngine;
-    }
+	interface Window {
+		engine?: GamefaceEngine;
+	}
 }
 interface Window {
 	gamefaceBinding: GamefaceBinding;
