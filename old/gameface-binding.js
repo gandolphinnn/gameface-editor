@@ -4,12 +4,6 @@
  */
 
 class GamefaceBinding {
-	public bindings: Map<any, any>;
-	public models: Map<any, any>;
-	public eventHandlers: Map<any, any>;
-	public isGamefaceEnvironment: boolean;
-
-
     constructor() {
         this.bindings = new Map();
         this.models = new Map();

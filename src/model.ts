@@ -1,5 +1,36 @@
-export const model: EditorModel = {
-	menu: [
+export const modelData: IModel = {
+	barsData: {
+		[EBarSlot.Left]: { size: 20 },
+		[EBarSlot.Right]: { size: 20 },
+		[EBarSlot.Bottom]: { size: 20 },
+	},
+	tabs: [
+		{
+			id: 'tab.outliner',
+			name: 'Outliner',
+			slot: EBarSlot.Left,
+			order: 1,
+		},
+		{
+			id: 'tab.git',
+			name: 'Git',
+			slot: EBarSlot.Left,
+			order: 2,
+		},
+		{
+			id: 'tab.details',
+			name: 'Details',
+			slot: EBarSlot.Right,
+			order: 1,
+		},
+		{
+			id: 'tab.terminal',
+			name: 'Terminal',
+			slot: EBarSlot.Bottom,
+			order: 1,
+		},
+	]
+	/* menu: [
 		{
 			id: 'menu.file',
 			name: 'File',
@@ -58,7 +89,24 @@ export const model: EditorModel = {
 			slot: ESlot.Start,
 			order: 3,
 		},
+		{
+			id: 'menu.help',
+			name: 'Help',
+			items: [
+				{
+					id: 'menu.help.about',
+					name: 'About',
+					onClick: () => {
+						console.log('About');
+					},
+				},
+			],
+			slot: ESlot.End,
+			order: 1,
+		},
 	],
+	tool: [],
+	bars: [],
 	viewport: [
 		{
 			id: 'viewport.showGrid',
@@ -67,6 +115,5 @@ export const model: EditorModel = {
 				console.log('Show Grid');
 			},
 		},
-	],
-	window: [],
+	], */
 }

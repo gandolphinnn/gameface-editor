@@ -5,100 +5,38 @@ Info: COHTML library initialized!
 Info: Inspector initialized. Remote debugging available on port: 9444
 Info: Initialized application!
 Info: Initialized Render Thread!
-Warning: CSS parsing error "syntax error" near text: 1fr
-Warning: Unsupported CSS pseudo element encountered: -webkit-scrollbar-thumb
-Warning: Unsupported CSS pseudo element encountered: -webkit-scrollbar-thumb
-Warning: Unsupported CSS pseudo element encountered: -webkit-scrollbar
-Warning: Unsupported CSS pseudo element encountered: -webkit-scrollbar-track
-Warning: Unsupported CSS pseudo element encountered: -webkit-slider-thumb
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--border-color)
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border - 1px solid var(--border-color)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-secondary)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-left - 1px solid var(--border-color)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-primary)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--accent-red)
-Info: Unsupported CSS property detected: accent-color
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-hover)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-top - 1px solid var(--border-color)
-Info: Unsupported CSS property detected: aspect-ratio
-Info: Unsupported CSS property detected: resize
-Warning: Unable to parse declaration: display - grid
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-right - 1px solid var(--border-color)
-Info: Unsupported CSS property detected: gap
-Info: Unsupported CSS property detected: grid-template-columns
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-bottom - 1px solid var(--border-color)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: transition - var(--transition)
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-color - var(--accent-blue)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-active)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-tertiary)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--accent-blue)
-Info: Unsupported CSS property detected: outline
-Warning: Unsupported CSS pseudo class selector encountered: disabled
-Warning: Unable to parse declaration: display - inline-flex
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border - 1px solid var(--border-color)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-top - 4px solid var(--text-secondary)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-secondary)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-primary)
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--accent-red)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-hover)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - linear-gradient(90deg,var(--accent-blue),var(--accent-green))
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-color - var(--accent-red)
-Warning: Unable to parse declaration: display - grid
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-bottom - 1px solid var(--border-color)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: transition - var(--transition)
-Info: Unsupported CSS property detected: gap
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border-color - var(--accent-blue)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-active)
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-tertiary)
-Warning: Unable to parse declaration: display - inline-block
-Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--accent-blue)
-Error: JS Error: http://localhost:8080/js/gameface-binding.js:20: TypeError: engine.on is not a function
+Error: JS Error: http://localhost:8080/dist/gameface-binding.js:17: TypeError: engine.on is not a function
 Error: JS Error (Line):             engine.on('ready', () => {
 Error: JS Error (Stack): TypeError: engine.on is not a function
-    at GamefaceBinding.initializeBinding (http://localhost:8080/js/gameface-binding.js:20:20)
-    at new GamefaceBinding (http://localhost:8080/js/gameface-binding.js:13:14)
-    at http://localhost:8080/js/gameface-binding.js:325:26
-Error: JS Error: http://localhost:8080/js/editor-core.js:16: ReferenceError: SelectTool is not defined
+    at GamefaceBinding.initializeBinding (http://localhost:8080/dist/gameface-binding.js:17:20)
+    at new GamefaceBinding (http://localhost:8080/dist/gameface-binding.js:11:14)
+    at http://localhost:8080/dist/gameface-binding.js:294:26
+Error: JS Error: http://localhost:8080/dist/editor-core.js:14: ReferenceError: SelectTool is not defined
 Error: JS Error (Line):             select: new SelectTool(),
 Error: JS Error (Stack): ReferenceError: SelectTool is not defined
-    at new EditorCore (http://localhost:8080/js/editor-core.js:16:25)
-    at http://localhost:8080/js/editor-core.js:539:21
+    at new EditorCore (http://localhost:8080/dist/editor-core.js:14:25)
+    at http://localhost:8080/dist/editor-core.js:473:21
 Info: Initializing Gameface Editor v1.0.0 
 Info: Live reload enabled. 
-Info: ✓ Viewport system ready 
+Error: JS Error: http://localhost:8080/dist/viewport.js:8: TypeError: Cannot read properties of null (reading 'getContext')
+Error: JS Error (Line):         this.ctx = this.canvas.getContext('2d');
+Error: JS Error (Stack): TypeError: Cannot read properties of null (reading 'getContext')
+    at new EditorViewport (http://localhost:8080/dist/viewport.js:8:32)
+    at HTMLDocument.<anonymous> (http://localhost:8080/dist/viewport.js:404:29)
 Info: ✓ UI management system ready 
 Error: Failed to initialize Gameface Editor: TypeError: Cannot read properties of undefined (reading 'onModelChange') 
  While executing JS :15:23
 Error: Failed to initialize editor: Cannot read properties of undefined (reading 'onModelChange') 
  While executing JS :15:23
 Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: background - var(--bg-secondary)
- While executing JS http://localhost:8080/js/ui-manager.js:602:36
+ While executing JS http://localhost:8080/dist/ui-manager.js:512:36
 Warning: Custom CSS expressions are not supported in shorthand declaration, please use the long versions of the CSS property: border - 1px solid var(--border-color)
- While executing JS http://localhost:8080/js/ui-manager.js:602:36
-Warning: The font sans-serif with weight Semi Bold (600) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Consolas with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Geneva with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font sans-serif with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font monospace with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Verdana with weight Semi Bold (600) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Tahoma with weight Bold (700) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Segoe UI with weight Semi Bold (600) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Geneva with weight Semi Bold (600) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Segoe UI with weight Bold (700) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Verdana with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font sans-serif with weight Bold (700) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Monaco with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Verdana with weight Bold (700) hasn't been loaded yet when view with id 0 unloaded its document.
+ While executing JS http://localhost:8080/dist/ui-manager.js:512:36
 Warning: The font Segoe UI with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
 Warning: The font Tahoma with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Geneva with weight Bold (700) hasn't been loaded yet when view with id 0 unloaded its document.
-Warning: The font Tahoma with weight Semi Bold (600) hasn't been loaded yet when view with id 0 unloaded its document.
+Warning: The font Verdana with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
+Warning: The font Geneva with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
+Warning: The font sans-serif with weight Normal (400) hasn't been loaded yet when view with id 0 unloaded its document.
 Info: Uninitializing Renoir library!
 Info: Uninitializing COHTML library!
 Info: Allocations by type

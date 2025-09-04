@@ -1,36 +1,53 @@
 declare enum ESlot {
-	Start,
-	Center,
-	End,
+	Start = 'start',
+	Center = 'center',
+	End = 'end',
 }
 
-declare interface EditorObject {
+declare enum EBarSlot {
+	Left = 'left',
+	Right = 'right',
+	Bottom = 'bottom',
+}
+
+declare interface IComponent {
 	id: string,
 	name?: string,
-	icon?: string,
-	visible?: boolean,
+	//icon?: string,
+	//visible?: boolean,
 	slot?: ESlot,
 	order?: number,
 }
 
-declare interface EditorButton extends EditorObject {
-	onClick: Function,
+declare interface IButton extends IComponent {
+	onClick?: Function,
 }
 
 /** Menus are on the top of the screen */
-declare interface EditorMenu extends EditorObject {
-	items: (EditorMenu | EditorButton | null)[],
-	opened?: boolean,
+declare interface IButtonGroup extends IButton {
+	items: IButton[],
+	//opened?: boolean,
 }
 
-declare interface EditorWindow extends EditorObject {
-	headerButtons: EditorButton[],
-	content: string,
-	opened?: boolean,
+declare interface ITab extends IComponent {
+	//headerButtons: IButton[],
+	slot?: EBarSlot,
+}
+declare interface IBarData {
+	size: number,
 }
 
-declare interface EditorModel {
-	menu: EditorMenu[],
-	viewport: EditorButton[],
-	window: EditorWindow[],
+/** The data of the 3 bars */
+declare interface IBarsData {
+	[EBarSlot.Left]: IBarData,
+	[EBarSlot.Right]: IBarData,
+	[EBarSlot.Bottom]: IBarData,
+}
+
+declare interface IModel {
+	barsData: IBarsData,
+	//menu: IButtonGroup[],
+	//viewport: IButton[],
+	//tool: IButtonGroup[],
+	tabs: ITab[],
 }
