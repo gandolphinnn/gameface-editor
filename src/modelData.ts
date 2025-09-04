@@ -1,35 +1,31 @@
-import { EBarSlot, IModel } from "./types/types.js";
+import { IModel } from "./types/types.js";
 
 export const modelData: IModel = {
 	barsData: {
-		[EBarSlot.Left]: { size: 20 },
-		[EBarSlot.Right]: { size: 20 },
-		[EBarSlot.Bottom]: { size: 20 },
+		left: { size: 20 },
+		right: { size: 20 },
+		bottom: { size: 20 },
 	},
 	tabs: [
 		{
 			id: 'tab.outliner',
-			name: 'Outliner',
-			slot: EBarSlot.Left,
+			slot: 'left',
 			order: 1,
-		},
-		{
-			id: 'tab.git',
-			name: 'Git',
-			slot: EBarSlot.Left,
-			order: 2,
 		},
 		{
 			id: 'tab.details',
-			name: 'Details',
-			slot: EBarSlot.Right,
+			slot: 'right',
 			order: 1,
 		},
 		{
-			id: 'tab.terminal',
-			name: 'Terminal',
-			slot: EBarSlot.Bottom,
+			id: 'tab.marketplace',
+			slot: 'bottom',
 			order: 1,
+		},
+		{
+			id: 'tab.assets',
+			slot: 'bottom',
+			order: 2,
 		},
 	]
 	/* menu: [

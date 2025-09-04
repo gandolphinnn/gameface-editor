@@ -1,14 +1,6 @@
-export enum ESlot {
-	Start = 'start',
-	Center = 'center',
-	End = 'end',
-}
-
-export enum EBarSlot {
-	Left = 'left',
-	Right = 'right',
-	Bottom = 'bottom',
-}
+export type TabId = 'tab.assets' | 'tab.details' | 'tab.marketplace' | 'tab.outliner';
+export type Slot = 'start' | 'center' | 'end';
+export type BarSlot = 'left' | 'right' | 'bottom';
 
 export interface IComponent {
 	id: string,
@@ -19,7 +11,7 @@ export interface IComponent {
 }
 
 export interface IButton extends IComponent {
-	slot?: ESlot,
+	slot?: Slot,
 	onClick?: Function,
 }
 
@@ -31,18 +23,15 @@ export interface IButtonGroup extends IButton {
 
 export interface ITab extends IComponent {
 	//headerButtons: IButton[],
-	slot?: EBarSlot,
+	id: TabId,
+	slot?: BarSlot,
 }
 export interface IBarData {
 	size: number,
 }
 
 /** The data of the 3 bars */
-export interface IBarsData {
-	[EBarSlot.Left]: IBarData,
-	[EBarSlot.Right]: IBarData,
-	[EBarSlot.Bottom]: IBarData,
-}
+export interface IBarsData extends Record<BarSlot, IBarData> {}
 
 export interface IModel {
 	barsData: IBarsData,

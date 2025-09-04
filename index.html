@@ -25,15 +25,11 @@
 	<div class="editor">
 		<div class="sidebar sb-left" style="width: 300px">
 			<div class="sb-tabs sb-left">
-				<div class="sb-tab">
-					Outliner
-				</div>
-				<div class="sb-tab">
-					Git
+				<div class="sb-tab" data-bind-for="index, item: {{Bind.tabGroups.left}}"
+					data-bind-value="{{item.name}}" data-bind-click="Bind.selectTab('left', {{item}})">
 				</div>
 			</div>
-			<div class="sb-content sb-left">
-				
+			<div class="sb-content sb-left" data-bind-value="{{Bind.activeTab.left.innerHtml}}">
 			</div>
 		</div>
 		<div class="main">
@@ -92,11 +88,9 @@
 		</div>
 	</div> -->
 
+	<!-- MUST IMPORT FIRST -->
 	<script src="dist/cohtml.js"></script>
 	
-	<script type="module" src="dist/connector.js"></script>
-	<!-- <script src="dist/connector.js"></script> -->
-	<!-- <script src="dist/model.js"></script>
-	<script src="dist/components.js"></!-->
+	<script type="module" src="dist/index.js"></script>
 </body>
 </html>

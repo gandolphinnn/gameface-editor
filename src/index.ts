@@ -1,21 +1,8 @@
 import { Model } from "./components.js";
-import { modelData } from "./model.js";
-
-const _model = new Model(modelData);
+import { modelData } from "./modelData.js";
 
 /** The one and only true model */
-export const Bind = {
-	count: _model.count,
-	increment: (value: number) => {
-		Bind.count += value;
-		Connector.updateModel();
-	}
-}
-
-engine.whenReady.then(() => {
-	Connector.createModel();
-})
-
+const Bind = new Model(modelData);
 
 export class Connector {
 	static createModel() {
@@ -28,3 +15,7 @@ export class Connector {
 		engine.synchronizeModels();
 	}
 }
+
+engine.whenReady.then(() => {
+	Connector.createModel();
+})
