@@ -1,4 +1,5 @@
 import { Model } from "./components.js";
+import { InnerHtmlHandler } from "./handlers/innerHtml.js";
 import { modelData } from "./modelData.js";
 
 /** The one and only true model */
@@ -14,8 +15,13 @@ export class Connector {
 		engine.updateWholeModel(Bind);
 		engine.synchronizeModels();
 	}
+
+	static registerBindingAttribute(name: string, HandlerClass: new () => IHandler<any>) {
+		engine.registerBindingAttribute(name, HandlerClass);
+	}
 }
 
 engine.whenReady.then(() => {
 	Connector.createModel();
+	Connector.registerBindingAttribute('inner-html', InnerHtmlHandler);
 })

@@ -1,3 +1,9 @@
+declare interface IHandler<T> {
+	init(element: HTMLElement, value: T): void;
+	update(element: HTMLElement, value: T): void;
+	deinit(element: HTMLElement): void;
+}
+
 /**
  * Interface representing the Gameface engine object
  */
@@ -42,6 +48,8 @@ interface GamefaceEngine {
 	 * @param handler - Function to handle the command
 	 */
 	registerCommand?(commandName: string, handler: (...args: any[]) => void): void;
+
+	registerBindingAttribute?(name: string, handler: typeof IHandler): void;
 }
 
 // Global engine variable
