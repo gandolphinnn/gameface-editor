@@ -8,23 +8,11 @@
 		"format": "prettier --write \"**/*.{ts,js,css,html,md}\"",
 		"watch": "tsc --watch",
 		"serve": "live-server --port=8080 --no-browser",
-		"play": "D:\\Plugins\\CoherentSample\\Apps\\Player.exe --url=http://localhost:8080"
+		"play": "D:\\Plugins\\CoherentSample\\Apps\\Player.exe --url=http://localhost:8080",
+		"deploy": "xcopy \"dist\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\dist\" /i /c /e /r /y && xcopy \"styles\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\styles\" /i /c /e /r /y && xcopy \"index.html\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\index.html\" /r /y"
 	},
-	"keywords": [
-		"gameface",
-		"ui",
-		"editor",
-		"game-development",
-		"3d",
-		"scene-editor",
-		"in-game-editor",
-		"html5",
-		"javascript",
-		"css3"
-	],
 	"author": "Gameface Editor Team",
 	"license": "MIT",
-	"dependencies": {},
 	"devDependencies": {
 		"@types/node": "^20.11.0",
 		"@typescript-eslint/eslint-plugin": "^6.19.0",

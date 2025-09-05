@@ -58,9 +58,9 @@ export class MarketplaceTab extends Tab {
 export class OutlinerTab extends Tab {
 	name = 'Outliner';
 	innerHtml = `
-		<div class="outliner-tab">
-			Outliner
-		</div>
+		<button data-bind-click="Data.increment(1)">Increment</button>
+		<button data-bind-click="Data.increment(-1)">Decrement</button>
+		<div data-bind-value="{{Data.count}}"></div>
 	`;
 
 	constructor(data: ITab) {

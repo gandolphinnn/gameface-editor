@@ -8,70 +8,56 @@
 	<link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
-	<!-- <div class="menu slots">
+	<div class="menu slots">
 		<div class="slot-start">
-			<button>File</button>
-			<button>Edit</button>
-			<button>View</button>
-			<button>Tools</button>
 		</div>
 		<div class="slot-center">
-			MENUS
 		</div>
 		<div class="slot-end">
-			<button>Help</button>
 		</div>
-	</div> -->
+	</div>
 	<div class="editor">
-		<div class="sidebar sb-left" style="width: 300px">
-			<div class="sb-tabs sb-left">
-				<div class="sb-tab" data-bind-for="index, item: {{Bind.tabGroups.left}}"
-					data-bind-value="{{item.name}}" data-bind-click="Bind.selectTab('left', {{item}})">
+		<div class="sidebar sb-left">
+			<!-- <div class="sb-tabs sb-left">
+				<div class="sb-tab" data-bind-for="index, item: {{Editor.tabGroups.left}}">
+					<div class="sb-tab-badge" data-bind-value="{{item.name}}" data-bind-click="Editor.selectTab('left', {{item}})"></div>
 				</div>
 			</div>
-			<div class="sb-content sb-left" data-bind-inner-html="{{Bind.activeTab.left.innerHtml}}">
-			</div>
+			<div class="sb-content sb-left" data-bind-if="{{Editor.activeTab.left}} != null" data-bind-inner-html="{{Editor.activeTab.left.innerHtml}}">
+			</div> -->
 		</div>
 		<div class="main">
 			<div class="viewport">
 				<div class="viewport-overlay slots">
 					<div class="slot-start">
-						<button>Perspective</button>
 					</div>
 					<div class="slot-center">
-						OVERLAY
 					</div>
 					<div class="slot-end">
-						FPS: 60
 					</div>
 				</div>
 			</div>
 			<div class="sidebar sb-bottom" style="height: 300px">
 				<div class="sb-tabs sb-bottom">
 					<div class="sb-tab">
-						Outliner
 					</div>
 					<div class="sb-tab">
-						Git
 					</div>
 				</div>
 				<div class="sb-content sb-bottom">
-					<button data-bind-click="Bind.increment(1)">Increment</button>
-					<button data-bind-click="Bind.increment(-1)">Decrement</button>
-					<div data-bind-value="{{Bind.count}}"></div>
+					<button data-bind-click="Data.increment(1)">Increment</button>
+					<button data-bind-click="Data.increment(-1)">Decrement</button>
+					<div data-bind-value="{{Data.count}}"></div>
 				</div>
 			</div>
 		</div>
-		<div class="sidebar sb-right" style="width: 300px">
+		<div class="sidebar sb-right">
 			<div class="sb-content sb-right">
-				
 			</div>
 			<div class="sb-tabs sb-right">
 				<div class="sb-tab">
-					Outliner
 				</div>
 				<div class="sb-tab">
-					Git
 				</div>
 			</div>
 		</div>
@@ -89,8 +75,8 @@
 	</div> -->
 
 	<!-- MUST IMPORT FIRST -->
-	<script src="dist/cohtml.js"></script>
+	<!-- <script src="dist/cohtml.js"></script> -->
 	
-	<script type="module" src="dist/index.js"></script>
+	<!-- <script type="module" src="dist/index.js"></script> -->
 </body>
 </html>

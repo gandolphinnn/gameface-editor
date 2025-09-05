@@ -27,15 +27,11 @@ export class Model implements IModel {
 	}
 
 	selectTab(slot: BarSlot, tab: Tab) {
+		if (this.activeTab[slot] === tab) {
+			tab = null;
+		}
+
 		this.activeTab[slot] = tab;
-		Connector.updateModel();
-	}
-	
-	/** @test Used to test the functionality of the 2-way bindings */
-	count = 12;
-	/** @test Used to test the functionality of the 2-way bindings */
-	increment(value: number) {
-		this.count += value;
-		Connector.updateModel();
+		Connector.updateModel('Editor');
 	}
 }
