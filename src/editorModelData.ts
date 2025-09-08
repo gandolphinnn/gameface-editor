@@ -1,6 +1,6 @@
 import { IModel } from "./types/types.js";
 
-export const modelData: IModel = {
+export const editorModelData: IModel = {
 	barsData: {
 		left: { size: 20 },
 		right: { size: 20 },

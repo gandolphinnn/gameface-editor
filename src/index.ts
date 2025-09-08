@@ -1,17 +1,17 @@
 import { Model } from "./components.js";
 import { InnerHtmlHandler } from "./handlers/innerHtml.js";
-import { modelData } from "./modelData.js";
+import { ResizeHandler } from "./handlers/resizer.js";
+import { editorModelData } from "./editorModelData.js";
 
-/** The one and only true model */
-const EditorModel = new Model(modelData);
+const EditorModel = new Model(editorModelData);
 /** @test Used to test the functionality of the 2-way bindings */
-/* const DataModel = {
+const DataModel = {
 	count: 12,
 	increment: (value: number) => {
 		DataModel.count += value;
 		Connector.updateModel('Data');
 	}
-} */
+}
 
 export class Connector {
 	private static models: Map<string, any> = new Map();
@@ -35,6 +35,7 @@ export class Connector {
 
 engine.whenReady.then(() => {
 	Connector.createModel('Editor', EditorModel);
-	//Connector.createModel('Data', DataModel);
+	Connector.createModel('Data', DataModel);
 	Connector.registerBindingAttribute('inner-html', InnerHtmlHandler);
+	Connector.registerBindingAttribute('resize', ResizeHandler);
 })

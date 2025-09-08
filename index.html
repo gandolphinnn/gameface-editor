@@ -18,13 +18,13 @@
 	</div>
 	<div class="editor">
 		<div class="sidebar sb-left">
-			<!-- <div class="sb-tabs sb-left">
+			<div class="sb-tabs sb-left">
 				<div class="sb-tab" data-bind-for="index, item: {{Editor.tabGroups.left}}">
 					<div class="sb-tab-badge" data-bind-value="{{item.name}}" data-bind-click="Editor.selectTab('left', {{item}})"></div>
 				</div>
 			</div>
 			<div class="sb-content sb-left" data-bind-if="{{Editor.activeTab.left}} != null" data-bind-inner-html="{{Editor.activeTab.left.innerHtml}}">
-			</div> -->
+			</div>
 		</div>
 		<div class="main">
 			<div class="viewport">
@@ -44,7 +44,7 @@
 					<div class="sb-tab">
 					</div>
 				</div>
-				<div class="sb-content sb-bottom">
+				<div class="sb-content sb-bottom" data-bind-resize="{{Editor.resizeBarParams.bottom}}">
 					<button data-bind-click="Data.increment(1)">Increment</button>
 					<button data-bind-click="Data.increment(-1)">Decrement</button>
 					<div data-bind-value="{{Data.count}}"></div>
@@ -75,8 +75,8 @@
 	</div> -->
 
 	<!-- MUST IMPORT FIRST -->
-	<!-- <script src="dist/cohtml.js"></script> -->
+	<script src="dist/cohtml.js"></script>
 	
-	<!-- <script type="module" src="dist/index.js"></script> -->
+	<script type="module" src="dist/index.js"></script>
 </body>
 </html>

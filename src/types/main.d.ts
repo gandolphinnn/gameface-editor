@@ -1,7 +1,7 @@
 declare interface IHandler<T> {
-	init(element: HTMLElement, value: T): void;
-	update(element: HTMLElement, value: T): void;
-	deinit(element: HTMLElement): void;
+	init?(element: HTMLElement, value: T): void;
+	update?(element: HTMLElement, value: T): void;
+	deinit?(element: HTMLElement): void;
 }
 
 /**

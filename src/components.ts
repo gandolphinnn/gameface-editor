@@ -1,6 +1,7 @@
 import { Connector } from "./index.js";
 import { Tab, TabFactory } from "./components/tab.js";
 import { BarSlot, IBarsData, IModel } from "./types/types.js";
+import { ResizeHandlerParams } from "./handlers/resizer.js";
 
 export class Model implements IModel {
 	barsData: IBarsData;
@@ -15,6 +16,12 @@ export class Model implements IModel {
 		left: [],
 		right: [],
 		bottom: [],
+	};
+
+	resizeBarParams: Record<BarSlot, string> = {
+		left: JSON.stringify({ r: { min: 200 } }),
+		right: JSON.stringify({ l: { min: 200 } }),
+		bottom: JSON.stringify({ t: { min: 200 } }),
 	};
 	
 	constructor(data: IModel) {
