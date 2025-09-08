@@ -9,6 +9,7 @@ export const editorModelData: IModel = {
 	tabs: [
 		{
 			id: 'tab.outliner',
+			icon: 'fa-solid fa-sitemap',
 			slot: 'left',
 			order: 1,
 		},

@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gameface In-Game Editor</title>
-	<link rel="stylesheet" href="./styles/index.css">
-	<link rel="stylesheet" href="./styles/main.css">
+	<link rel="stylesheet" href="./dist/styles/index.css">
+	
+	<!-- <script src="https://kit.fontawesome.com/2f9bb65c08.js" crossorigin="anonymous"></script> -->
 </head>
 <body>
 	<div class="menu slots">
@@ -17,10 +18,12 @@
 		</div>
 	</div>
 	<div class="editor">
-		<div class="sidebar sb-left">
+		<div class="sb sb-left" data-bind-resizable="{{Editor.resizeBarParams.left}}">
 			<div class="sb-tabs sb-left">
 				<div class="sb-tab" data-bind-for="index, item: {{Editor.tabGroups.left}}">
-					<div class="sb-tab-badge" data-bind-value="{{item.name}}" data-bind-click="Editor.selectTab('left', {{item}})"></div>
+					<div class="sb-tab-badge" data-bind-class-toggle="active:{{Editor.activeTab.left}} === {{item}}" data-bind-click="Editor.selectTab('left', {{item}})">
+						<p data-bind-value="{{item.name}}"></p>
+					</div>
 				</div>
 			</div>
 			<div class="sb-content sb-left" data-bind-if="{{Editor.activeTab.left}} != null" data-bind-inner-html="{{Editor.activeTab.left.innerHtml}}">
@@ -37,21 +40,19 @@
 					</div>
 				</div>
 			</div>
-			<div class="sidebar sb-bottom" style="height: 300px">
+			<div class="sb sb-bottom" data-bind-resizable="{{Editor.resizeBarParams.bottom}}">
 				<div class="sb-tabs sb-bottom">
 					<div class="sb-tab">
 					</div>
-					<div class="sb-tab">
-					</div>
 				</div>
-				<div class="sb-content sb-bottom" data-bind-resize="{{Editor.resizeBarParams.bottom}}">
+				<div class="sb-content sb-bottom">
 					<button data-bind-click="Data.increment(1)">Increment</button>
 					<button data-bind-click="Data.increment(-1)">Decrement</button>
 					<div data-bind-value="{{Data.count}}"></div>
 				</div>
 			</div>
 		</div>
-		<div class="sidebar sb-right">
+		<div class="sb sb-right" data-bind-resizable="{{Editor.resizeBarParams.right}}">
 			<div class="sb-content sb-right">
 			</div>
 			<div class="sb-tabs sb-right">
@@ -62,17 +63,14 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="footer slots">
+	<div class="footer slots">
 		<div class="slot-start">
-			STATUS
 		</div>
 		<div class="slot-center">
-			SELECTION
 		</div>
 		<div class="slot-end">
-			CAMERA
 		</div>
-	</div> -->
+	</div>
 
 	<!-- MUST IMPORT FIRST -->
 	<script src="dist/cohtml.js"></script>

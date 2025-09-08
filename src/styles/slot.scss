@@ -1,0 +1,24 @@
+.slot {
+	&s {
+		display: flex;
+		justify-content: space-between;
+	}
+	&-start {
+		flex: 1 1;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+	&-center {
+		flex: 1 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&-end {
+		flex: 1 1;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}

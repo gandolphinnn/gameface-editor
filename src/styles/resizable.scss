@@ -1,0 +1,38 @@
+$hook-color: transparent;
+$hook-hover-color: #0078d4;
+$hook-size: .5rem;
+
+.resize-hook {
+	&-l, &-r, &-t, &-b {
+		position: absolute;
+		background-color: $hook-color;
+		cursor: grab;
+
+		&.selected, &:hover {
+			background-color: $hook-hover-color;
+		}
+	}
+	&-l {
+		left: 0;
+		width: $hook-size;
+		height: 100%;
+	}
+
+	&-r {
+		right: 0;
+		width: $hook-size;
+		height: 100%;
+	}
+
+	&-t {
+		top: 0;
+		width: 100%;
+		height: $hook-size;
+	}
+
+	&-b {
+		bottom: 0;
+		width: 100%;
+		height: $hook-size;
+	}
+}

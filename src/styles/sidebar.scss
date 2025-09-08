@@ -1,0 +1,49 @@
+$sidebar-border-width: 1px;
+$sidebar-border-color: black;
+
+$sidebar-tabs-width: 2.5rem;
+$sidebar-tabs-height: 2.5rem;
+
+$sidebar-content-max-width: 40%;
+$sidebar-content-max-height: 60%;
+
+$sidebar-content-min-width: 20%;
+$sidebar-content-min-height: 10%;
+
+/* 
+.sb sb-$$$
+	.sb-tabs sb-$$$
+		.sb-tab sb-$$$ (for)
+	.sb-content sb-$$$ (html injection)
+*/
+
+.sb, .sb-tabs {
+	display: flex;
+	border: $sidebar-border-width solid $sidebar-border-color;
+}
+
+.sb.sb-bottom, .sb-tabs.sb-left, .sb-tabs.sb-right {
+	flex-direction: column;
+}
+
+.sb-content {
+	flex: 1 1;
+}
+
+.sb-tabs.sb-left, .sb-tabs.sb-right {
+	width: $sidebar-tabs-width;
+}
+
+.sb-tabs.sb-bottom {
+	height: $sidebar-tabs-height;
+}
+
+.sb.sb-left, .sb.sb-right {
+	min-width: $sidebar-content-min-width;
+	max-width: $sidebar-content-max-width;
+}
+
+.sb.sb-bottom {
+	min-height: $sidebar-content-min-height;
+	max-height: $sidebar-content-max-height;
+}

@@ -1,0 +1,39 @@
+.menu, .footer, .sb {
+	background-color: var(--bg-primary);
+}
+
+.menu {
+	height: 2rem;
+	display: flex;
+}
+
+.editor {
+	flex: 1 1;
+	display: flex;
+}
+
+.main {
+	flex: 1 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.viewport {
+	flex: 1 1;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	&-overlay {
+		position: absolute;
+		width: 100%;
+		display: flex;
+		padding: .5rem;
+	}
+}
+
+.footer {
+	height: 2rem;
+	display: flex;
+}

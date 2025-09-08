@@ -1,3 +1,8 @@
+@import "./components.scss";
+@import "./slot.scss";
+@import "./sidebar.scss";
+@import "./resizable.scss";
+
 :root {
 	--bg-primary: #1e1e1e;
 	--bg-secondary: #252526;

@@ -6,10 +6,11 @@
 	"scripts": {
 		"lint": "eslint src/**/*.ts",
 		"format": "prettier --write \"**/*.{ts,js,css,html,md}\"",
-		"watch": "tsc --watch",
+		"sass:watch": "sass src/styles:dist/styles --watch",
+		"tsc:watch": "tsc --watch",
 		"serve": "live-server --port=8080 --no-browser",
-		"play": "D:\\Plugins\\CoherentSample\\Apps\\Player.exe --url=http://localhost:8080",
-		"deploy": "xcopy \"dist\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\dist\" /i /c /e /r /y && xcopy \"styles\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\styles\" /i /c /e /r /y && xcopy \"index.html\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\index.html\" /r /y"
+		"play": "D:\\Plugins\\CoherentSample\\Apps\\Player.exe --url=http://localhost:8080 --debugger-port=8081 --fullscreen-borderless=1",
+		"deploy": "xcopy \"dist\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\dist\" /i /c /e /r /y && xcopy \"index.html\" \"D:\\Progetti\\AirlandStudio\\Content\\uiresources\\index.html\" /r /y"
 	},
 	"author": "Gameface Editor Team",
 	"license": "MIT",
@@ -21,7 +22,7 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-prettier": "^5.1.3",
 		"http-server": "^14.1.1",
-		"live-server": "^1.2.2",
+		"live-server": "^1.2.0",
 		"prettier": "^3.2.5",
 		"typescript": "^5.3.0"
 	},
@@ -55,5 +56,8 @@
 			"property-editing",
 			"tool-system"
 		]
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-pro": "^8.0.0"
 	}
 }

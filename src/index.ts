@@ -1,6 +1,6 @@
 import { Model } from "./components.js";
 import { InnerHtmlHandler } from "./handlers/innerHtml.js";
-import { ResizeHandler } from "./handlers/resizer.js";
+import { ResizableHandler } from "./handlers/resizable.js";
 import { editorModelData } from "./editorModelData.js";
 
 const EditorModel = new Model(editorModelData);
@@ -34,8 +34,11 @@ export class Connector {
 }
 
 engine.whenReady.then(() => {
+	//* Register binding attributes
+	Connector.registerBindingAttribute('inner-html', InnerHtmlHandler);
+	Connector.registerBindingAttribute('resizable', ResizableHandler);
+
+	//* Create models
 	Connector.createModel('Editor', EditorModel);
 	Connector.createModel('Data', DataModel);
-	Connector.registerBindingAttribute('inner-html', InnerHtmlHandler);
-	Connector.registerBindingAttribute('resize', ResizeHandler);
 })

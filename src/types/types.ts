@@ -5,7 +5,7 @@ export type BarSlot = 'left' | 'right' | 'bottom';
 export interface IComponent {
 	id: string,
 	name?: string,
-	//icon?: string,
+	icon?: string,
 	//visible?: boolean,
 	order?: number,
 }
