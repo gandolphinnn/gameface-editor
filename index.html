@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gameface In-Game Editor</title>
 	<link rel="stylesheet" href="./dist/styles/index.css">
+
+	<!-- <link rel="stylesheet" href="./node_modules/@awesome.me/kit-2f9bb65c08/icons/css/all.min.css">
+	<script src="./node_modules/@awesome.me/kit-2f9bb65c08/index.js"></script> -->
 	
 	<!-- <script src="https://kit.fontawesome.com/2f9bb65c08.js" crossorigin="anonymous"></script> -->
 </head>
@@ -13,6 +16,8 @@
 		<div class="slot-start">
 		</div>
 		<div class="slot-center">
+			A<i class="fa-solid fa-sitemap"></i>A
+			<p data-bind-value="{{Editor.success}}"></p>
 		</div>
 		<div class="slot-end">
 		</div>
@@ -43,6 +48,10 @@
 			<div class="sb sb-bottom" data-bind-resizable="{{Editor.resizeBarParams.bottom}}">
 				<div class="sb-tabs sb-bottom">
 					<div class="sb-tab">
+						Terminal
+					</div>
+					<div class="sb-tab">
+						Console
 					</div>
 				</div>
 				<div class="sb-content sb-bottom">

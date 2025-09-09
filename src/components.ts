@@ -23,6 +23,7 @@ export class Model implements IModel {
 		right: 'l',
 		bottom: 't',
 	};
+	success: boolean
 	
 	constructor(data: IModel) {
 		this.barsData = data.barsData;
@@ -31,6 +32,20 @@ export class Model implements IModel {
 		this.tabs.forEach(tab => {
 			this.tabGroups[tab.slot].push(tab);
 		});
+
+		this.fetch();
+	}
+
+	async fetch() {
+		try {
+			const response = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+			const data = await response.json()
+			console.log(data)
+			this.success = true;
+		} catch (error: any) {
+			console.log(error)
+			this.success = false;
+		}
 	}
 
 	selectTab(slot: BarSlot, tab: Tab) {

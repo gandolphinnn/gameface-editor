@@ -2,12 +2,12 @@ $sidebar-border-width: 1px;
 $sidebar-border-color: black;
 
 $sidebar-tabs-width: 2.5rem;
-$sidebar-tabs-height: 2.5rem;
+$sidebar-tabs-height: 2rem;
 
 $sidebar-content-max-width: 40%;
 $sidebar-content-max-height: 60%;
 
-$sidebar-content-min-width: 20%;
+$sidebar-content-min-width: 15%;
 $sidebar-content-min-height: 10%;
 
 /* 
@@ -46,4 +46,18 @@ $sidebar-content-min-height: 10%;
 .sb.sb-bottom {
 	min-height: $sidebar-content-min-height;
 	max-height: $sidebar-content-max-height;
+}
+
+.sb-tab {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0rem 1rem;
+
+	&:hover {
+		background-color: var(--bg-hover);
+	}
+	&:active {
+		background-color: var(--bg-active);
+	}
 }

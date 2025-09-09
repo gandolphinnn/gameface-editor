@@ -58,6 +58,6 @@
 		]
 	},
 	"dependencies": {
-		"@fortawesome/fontawesome-pro": "^8.0.0"
+		"@awesome.me/kit-2f9bb65c08": "latest"
 	}
 }
